@@ -1,0 +1,95 @@
+@import "@/assets/styles/constants.scss";
+
+html {
+   height: 100%;
+   box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+   box-sizing: inherit;
+}
+body {
+   height: 100%;
+   font-family: "Inter Regular";
+   font-size: 16px;
+   color: $mainColor;
+}
+
+a {
+   text-decoration: none;
+   color: $mainColor;
+}
+
+button {
+   border: none;
+   background-color: inherit;
+}
+
+h1 {
+   font-family: "Inter Bold";
+   @include adaptiv-value("font-size", 64, 28, 1);
+   color: $mainColor;
+   align-items: center;
+}
+
+h2 {
+   font-family: "Inter Bold";
+   @include adaptiv-value("font-size", 48, 24, 1);
+   color: $mainColor;
+   align-items: center;
+}
+
+.wrapper {
+   width: 100%;
+   min-height: 100%;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   background-color: $grayColor;
+}
+
+._container {
+   margin: 0 auto;
+   max-width: $maxWidthContainer + px;
+   padding: 0 15px;
+}
+
+.ibg {
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   position: relative;
+   img {
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      visibility: hidden;
+   }
+}
+
+.btn {
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   @include adaptiv-value("padding-left", 31, 24, 1);
+   @include adaptiv-value("padding-right", 31, 24, 1);
+   @include adaptiv-value("font-size", 16, 14, 1);
+   text-align: center;
+   transition: 0.3s;
+   font-family: "Inter Semibold";
+   background-color: $blueColor;
+   color: #fff;
+   line-height: 175%;
+   text-transform: uppercase;
+   border-radius: 8px;
+   cursor: pointer;
+   &:hover {
+      background-color: $darkBlueColor;
+   }
+}
