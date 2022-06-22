@@ -13,11 +13,6 @@ $darkBlueColor: #3d7fd4;
 $grayColor: #fdfcfc;
 $darkGrayColor: #f5f5f5;
 
-// $orangeColor: #e89f71;
-// $lightOrangeColor: #fcf8f3;
-// $darkOrangeColor: #e3671a;
-// $darkGreyColor: #616161;
-
 @mixin adaptiv-value($property, $startSize, $minSize, $type) {
    $addSize: $startSize - $minSize;
    @if $type==1 {

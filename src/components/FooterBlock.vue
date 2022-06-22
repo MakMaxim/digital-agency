@@ -43,7 +43,6 @@ FooterItemList
 @import "@/assets/styles/constants.scss";
 
 .footer {
-   // margin-bottom: 40px;
    background-color: $darkGrayColor;
    @include adaptiv-value("margin-top", 138, 35, 1);
    &__container {
@@ -57,9 +56,6 @@ FooterItemList
       @media (max-width: $md1 + px) {
          grid-template-columns: 1fr;
       }
-      // @media (max-width: $md2 + px) {
-      //    display: block;
-      // }
    }
    &__main {
       @media (max-width: $md1 + px) {
@@ -85,13 +81,6 @@ FooterItemList
       display: flex;
       justify-content: space-between;
       flex: 1 1 auto;
-      // @media (max-width: $md1 + px) {
-      //    justify-content: space-between;
-      //    @include adaptiv-value("padding-right", 100, 0, 0);
-      // }
-      // @media (max-width: $md2 + px) {
-      //    @include adaptiv-value("margin-bottom", 40, 14, 1);
-      // }
       @media (max-width: $md4 + px) {
          flex-direction: column;
       }

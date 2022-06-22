@@ -39,9 +39,6 @@ export default {
       window.addEventListener("resize", this.handleResize);
    },
    mounted() {
-      setInterval(() => {
-         this.ibg();
-      }, 200);
       this.handleResize();
    },
    unmounted() {
@@ -52,17 +49,6 @@ export default {
       handleResize() {
          this.MAKE_RESIZE_WIDTH();
          this.MAKE_RESIZE_HEIGHT();
-      },
-      ibg() {
-         let ibg = document.querySelectorAll(".ibg");
-         for (let i = 0; i < ibg.length; i++) {
-            if (ibg[i].querySelector("img")) {
-               ibg[i].style.backgroundImage =
-                  "url(" +
-                  ibg[i].querySelector("img").getAttribute("src") +
-                  ")";
-            }
-         }
       },
    },
 };

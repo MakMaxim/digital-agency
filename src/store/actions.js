@@ -1,5 +1,3 @@
-// import axios from "axios";
-
 export default {
    MAKE_BURGER_MENU_OPEN({ commit }) {
       commit("BURGER_MENU_OPEN");
