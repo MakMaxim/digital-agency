@@ -72,6 +72,9 @@ export default {
       display: flex;
    }
    &__list {
+      @media (max-width: $md4 + px) {
+         margin-bottom: 15px;
+      }
    }
    &__btn {
       transition: all 0.4s ease 0s;
