@@ -6,9 +6,27 @@ import getters from "./getters";
 export default createStore({
    state: {
       isBurgerMenuOpen: false,
+      isBurgerPush: false,
       width: 0,
       height: 0,
-      menuList: ["home", "about", "testimonials", "contact"],
+      menuList: [
+         {
+            title: "home",
+            section: ".home-link",
+         },
+         {
+            title: "about",
+            section: ".about-link",
+         },
+         {
+            title: "testimonials",
+            section: ".testimonials-link",
+         },
+         {
+            title: "contact",
+            section: ".contact-link",
+         },
+      ],
       testimonials: [
          {
             image: "1.png",

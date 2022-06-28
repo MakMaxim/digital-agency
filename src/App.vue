@@ -1,12 +1,12 @@
 <template>
    <div class="wrapper">
-      <header-block></header-block>
-      <main-section></main-section>
+      <header-block @onMenuLinkClick="onMenuLinkClick"></header-block>
+      <main-section class="home-link"></main-section>
       <companies-section></companies-section>
-      <branding-section></branding-section>
+      <branding-section class="about-link"></branding-section>
       <custom-section></custom-section>
-      <testimonials-section></testimonials-section>
-      <contact-section></contact-section>
+      <testimonials-section class="testimonials-link"></testimonials-section>
+      <contact-section class="contact-link"></contact-section>
       <footer-block></footer-block>
    </div>
 </template>
@@ -49,6 +49,13 @@ export default {
       handleResize() {
          this.MAKE_RESIZE_WIDTH();
          this.MAKE_RESIZE_HEIGHT();
+      },
+      onMenuLinkClick(gotoBlock, header) {
+         const gotoBlockValue = gotoBlock + scrollY - header;
+         window.scrollTo({
+            top: gotoBlockValue,
+            behavior: "smooth",
+         });
       },
    },
 };

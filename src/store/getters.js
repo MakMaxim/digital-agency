@@ -2,6 +2,9 @@ export default {
    ISBURGERMENUOPEN(state) {
       return state.isBurgerMenuOpen;
    },
+   ISBURGERPUSH(state) {
+      return state.isBurgerPush;
+   },
    WIDTH(state) {
       return state.width;
    },

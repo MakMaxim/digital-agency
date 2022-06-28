@@ -1,8 +1,8 @@
 <template>
    <div
       class="burgerMenu"
-      @click="(isBurgerPush = !isBurgerPush), burgerMenuOpen()"
-      :class="{ burgerMenu_active: isBurgerPush }"
+      @click="burgerPush(), burgerMenuOpen()"
+      :class="{ burgerMenu_active: ISBURGERPUSH }"
    >
       <span></span>
    </div>
@@ -11,18 +11,21 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 export default {
-   data() {
-      return {
-         isBurgerPush: false,
-      };
-   },
+   // data() {
+   //    return {
+   //       isBurgerPush: false,
+   //    };
+   // },
    computed: {
-      ...mapGetters(["ISBURGERMENUOPEN"]),
+      ...mapGetters(["ISBURGERMENUOPEN", "ISBURGERPUSH"]),
    },
    methods: {
-      ...mapActions(["MAKE_BURGER_MENU_OPEN"]),
+      ...mapActions(["MAKE_BURGER_MENU_OPEN", "MAKE_BURGER_PUSH"]),
       burgerMenuOpen() {
          this.MAKE_BURGER_MENU_OPEN();
+      },
+      burgerPush() {
+         this.MAKE_BURGER_PUSH();
       },
    },
 };

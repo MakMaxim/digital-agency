@@ -17,8 +17,13 @@
                            :key="i"
                         >
                            <li class="menu__item">
-                              <a href="">
-                                 {{ item }}
+                              <a
+                                 :data-goto="item.section"
+                                 href="#"
+                                 class="menu__link"
+                                 @click.prevent="onMenuLinkClick"
+                              >
+                                 {{ item.title }}
                               </a>
                            </li>
                         </ul>
@@ -33,12 +38,25 @@
 
 <script>
 import BurgerMenu from "@/components/BurgerMenu.vue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
    name: "HeaderBlock",
    components: {
       BurgerMenu,
+   },
+   methods: {
+      ...mapActions(["MAKE_BURGER_MENU_CLOSE"]),
+      onMenuLinkClick(e) {
+         this.MAKE_BURGER_MENU_CLOSE();
+         const menuLink = e.target;
+         let gotoBlock = document
+            .querySelector(menuLink.dataset.goto)
+            .getBoundingClientRect().top;
+         let header = document.querySelector(".header__body").offsetHeight;
+         console.log(header);
+         this.$emit("onMenuLinkClick", gotoBlock, header);
+      },
    },
    computed: {
       ...mapGetters(["WIDTH", "HEIGHT", "ISBURGERMENUOPEN", "MENULIST"]),
@@ -136,7 +154,8 @@ export default {
       }
       a {
          &:hover {
-            color: $darkBlueColor;
+            // color: $darkBlueColor;
+            text-decoration: underline;
          }
       }
    }
