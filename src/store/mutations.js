@@ -15,4 +15,10 @@ export default {
    RESIZE_HEIGHT(state) {
       state.height = window.innerHeight;
    },
+   RESIZE_HEADER(state, header) {
+      state.header = header;
+   },
+   FIND_INDEX(state, index) {
+      state.index = index;
+   },
 };

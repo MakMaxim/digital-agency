@@ -4,16 +4,11 @@
          <div class="main__container _container">
             <div class="main__body">
                <div class="main__info">
-                  <h1 class="main__title">
-                     Building Digital Products, Brands & Experience
-                  </h1>
+                  <h1 class="main__title">Building Digital Products, Brands & Experience</h1>
                   <div class="main__text">
-                     Digital Agency Is Your Online Team Mangement Tool That Easy
-                     And Prompt
+                     Digital Agency Is Your Online Team Mangement Tool That Easy And Prompt
                   </div>
-                  <a href="" class="main__button btn" @click.prevent="">
-                     Contact us
-                  </a>
+                  <a href="" class="main__button btn" @click.prevent=""> Contact us </a>
                </div>
                <div class="main__image">
                   <img src="@/assets/images/1.png" alt="1" />

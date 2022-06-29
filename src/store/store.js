@@ -9,6 +9,8 @@ export default createStore({
       isBurgerPush: false,
       width: 0,
       height: 0,
+      header: 0,
+      index: 0,
       menuList: [
          {
             title: "home",

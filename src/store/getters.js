@@ -11,6 +11,12 @@ export default {
    HEIGHT(state) {
       return state.height;
    },
+   HEADER(state) {
+      return state.header;
+   },
+   INDEX(state) {
+      return state.index;
+   },
    MENULIST(state) {
       return state.menuList;
    },

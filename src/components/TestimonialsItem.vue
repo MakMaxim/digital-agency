@@ -2,13 +2,7 @@
    <article class="testimonials__item testimonial">
       <div class="testimonial__content">
          <div href="#" class="testimonial__image">
-            <img
-               :src="
-                  require('@/assets/images/Testimonials/' +
-                     testimonial_item.image)
-               "
-               alt="image"
-            />
+            <img :src="require('@/assets/images/Testimonials/' + testimonial_item.image)" alt="image" />
          </div>
          <h3 class="testimonial__name">{{ testimonial_item.name }}</h3>
          <div class="testimonial__text">{{ testimonial_item.text }}</div>
@@ -31,10 +25,6 @@ export default {
 <style scoped lang="scss">
 @import "@/assets/styles/constants.scss";
 
-.testimonials {
-   &__item {
-   }
-}
 .testimonial {
    background-color: $darkGrayColor;
    border-radius: 20px;

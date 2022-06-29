@@ -14,4 +14,10 @@ export default {
    MAKE_RESIZE_HEIGHT({ commit }) {
       commit("RESIZE_HEIGHT");
    },
+   MAKE_RESIZE_HEADER({ commit }, header) {
+      commit("RESIZE_HEADER", header);
+   },
+   MAKE_FIND_INDEX({ commit }, index) {
+      commit("FIND_INDEX", index);
+   },
 };

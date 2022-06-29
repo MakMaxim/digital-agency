@@ -2,17 +2,11 @@
    <div class="menu__column">
       <div class="menu__title footer__title title">
          <div>{{ menu_item.title }}</div>
-         <button
-            class="menu__btn"
-            :class="{ menu__btnrotate: isRotate }"
-            v-if="WIDTH < 479.98"
-         >
+         <button class="menu__btn" :class="{ menu__btnrotate: isRotate }" v-if="WIDTH < 479.98">
             <img
                src="@/assets/images/Arrow-down.svg"
                alt="Arrow-down"
-               @click="
-                  (isRotate = !isRotate), (isMenuListOpen = !isMenuListOpen)
-               "
+               @click="(isRotate = !isRotate), (isMenuListOpen = !isMenuListOpen)"
             />
          </button>
       </div>

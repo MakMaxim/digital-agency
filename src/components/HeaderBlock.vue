@@ -6,16 +6,9 @@
                <a href="" class="header__logo">Digital Agency</a>
                <burger-menu />
                <transition name="fade">
-                  <div
-                     class="header__menu menu"
-                     v-if="WIDTH > 767.98 || ISBURGERMENUOPEN"
-                  >
+                  <div class="header__menu menu" v-if="WIDTH > 767.98 || ISBURGERMENUOPEN">
                      <nav class="menu__body">
-                        <ul
-                           class="menu__list"
-                           v-for="(item, i) in MENULIST"
-                           :key="i"
-                        >
+                        <ul class="menu__list" v-for="(item, i) in MENULIST" :key="i">
                            <li class="menu__item">
                               <a
                                  :data-goto="item.section"
@@ -45,21 +38,44 @@ export default {
    components: {
       BurgerMenu,
    },
+   created() {
+      window.addEventListener("scroll", this.headerWeight);
+      window.addEventListener("scroll", this.menuItemActive);
+   },
    methods: {
-      ...mapActions(["MAKE_BURGER_MENU_CLOSE"]),
+      ...mapActions(["MAKE_BURGER_MENU_CLOSE", "MAKE_RESIZE_HEADER"]),
+      // измерение высоты хедера
+      headerWeight() {
+         let header = document.querySelector(".header__body").offsetHeight;
+         this.MAKE_RESIZE_HEADER(header);
+      },
+
+      // вызов в родительском компоненте функции перелистывания на нужный раздел страницы по клику на пункт меню
       onMenuLinkClick(e) {
          this.MAKE_BURGER_MENU_CLOSE();
          const menuLink = e.target;
-         let gotoBlock = document
-            .querySelector(menuLink.dataset.goto)
-            .getBoundingClientRect().top;
-         let header = document.querySelector(".header__body").offsetHeight;
-         console.log(header);
-         this.$emit("onMenuLinkClick", gotoBlock, header);
+         let gotoBlock = document.querySelector(menuLink.dataset.goto).getBoundingClientRect().top;
+         this.$emit("onMenuLinkClick", gotoBlock);
+      },
+
+      // выделение пункта меню при выборе и скролле
+      menuItemActive() {
+         document.querySelectorAll(".menu__body a").forEach((el) => {
+            if (el.classList.contains("_active")) {
+               el.classList.remove("_active");
+            }
+         });
+         document.querySelectorAll(".menu__body li")[this.INDEX].querySelector("a").classList.add("_active");
       },
    },
    computed: {
-      ...mapGetters(["WIDTH", "HEIGHT", "ISBURGERMENUOPEN", "MENULIST"]),
+      ...mapGetters(["WIDTH", "HEIGHT", "ISBURGERMENUOPEN", "MENULIST", "HEADER", "INDEX"]),
+   },
+   mounted() {
+      this.headerWeight();
+   },
+   unmounted() {
+      window.removeEventListener("scroll", this.headerWeight);
    },
 };
 </script>
@@ -152,11 +168,13 @@ export default {
       @media (max-width: $md3 + px) {
          padding: 5px 0;
       }
-      a {
-         &:hover {
-            // color: $darkBlueColor;
-            text-decoration: underline;
-         }
+   }
+   &__link {
+      &:hover {
+         text-decoration: underline;
+      }
+      &._active {
+         color: $darkBlueColor;
       }
    }
 }
